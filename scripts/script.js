@@ -20,61 +20,62 @@ document.addEventListener("DOMContentLoaded", function () {
     const kzButton = document.getElementById("lang-kz");
 
     function setLanguage(lang) {
-        localStorage.setItem("language", lang); // Сохраняем язык
-        updateActiveButton(lang); // Обновляем кнопки
-        redirectToLanguagePage(lang); // Перенаправляем пользователя
+        localStorage.setItem("language", lang);
+        updateActiveButton(lang);
+        redirectToLanguagePage(lang);
     }
 
     function updateActiveButton(lang) {
-        if (lang === "kz") {
-            ruButton.classList.remove("active");
-            kzButton.classList.add("active");
-        } else {
-            kzButton.classList.remove("active");
-            ruButton.classList.add("active");
-        }
+        ruButton.classList.toggle("active", lang === "ru");
+        kzButton.classList.toggle("active", lang === "kz");
     }
 
     function redirectToLanguagePage(lang) {
-        let currentPath = window.location.pathname; // Получаем текущий путь
+        let currentPath = window.location.pathname; // Текущий путь (например, "/kz/about.html")
 
-        // Если мы на главной (`/` или `/index.html`)
+        // Если на главной странице, просто перекидываем на index.html
         if (currentPath === "/" || currentPath === "/index.html") {
             window.location.href = lang === "kz" ? "/kz/index.html" : "/index.html";
             return;
         }
 
-        // Определяем, где мы сейчас находимся
+        // Проверяем, в какой папке находимся
         let isInKZ = currentPath.startsWith("/kz/");
         let isInRU = currentPath.startsWith("/ru/");
 
-        // Формируем новый путь
-        let newPath = "";
+        let newPath = currentPath;
 
-        if (lang === "kz" && !isInKZ) {
-            newPath = "/kz" + currentPath.replace("/ru/", "");
-        } else if (lang === "ru" && !isInRU) {
-            newPath = "/ru" + currentPath.replace("/kz/", "");
+        // Если переключаемся на KZ, но сейчас в RU → убираем "/ru/" и добавляем "/kz/"
+        if (lang === "kz" && isInRU) {
+            newPath = "/kz" + currentPath.replace("/ru", "");
+        }
+        // Если переключаемся на RU, но сейчас в KZ → убираем "/kz/" и добавляем "/ru/"
+        else if (lang === "ru" && isInKZ) {
+            newPath = "/ru" + currentPath.replace("/kz", "");
+        }
+        // Если мы НЕ в /ru/ и НЕ в /kz/, просто переходим в корень
+        else if (lang === "ru") {
+            newPath = "/index.html";
+        } else if (lang === "kz") {
+            newPath = "/kz/index.html";
         }
 
-        // Перенаправляем, если путь изменился
-        if (newPath && newPath !== currentPath) {
-            window.location.href = newPath;
-        }
+        // Меняем страницу
+        window.location.href = newPath;
     }
 
-    // При загрузке страницы проверяем язык и обновляем кнопки
+    // При загрузке страницы проверяем сохраненный язык
     let savedLang = localStorage.getItem("language") || "ru";
     updateActiveButton(savedLang);
 
-    // Если пользователь уже выбрал язык, перенаправляем его
-//     if (savedLang === "kz" && !window.location.pathname.startsWith("/kz/")) {
-//        redirectToLanguagePage("kz");
-//    } else if (savedLang === "ru" && !window.location.pathname.startsWith("/ru/")) {
-//        redirectToLanguagePage("ru");
-//   }
+    // Если нужно, делаем редирект
+    if (savedLang === "kz" && !window.location.pathname.startsWith("/kz/")) {
+        redirectToLanguagePage("kz");
+    } else if (savedLang === "ru" && !window.location.pathname.startsWith("/ru/")) {
+        redirectToLanguagePage("ru");
+    }
 
-    // Обработчики событий для кнопок
+    // Назначаем обработчики кликов на кнопки
     ruButton.addEventListener("click", () => setLanguage("ru"));
     kzButton.addEventListener("click", () => setLanguage("kz"));
 });
