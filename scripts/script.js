@@ -68,11 +68,11 @@ document.addEventListener("DOMContentLoaded", function () {
     updateActiveButton(savedLang);
 
     // Если пользователь уже выбрал язык, перенаправляем его
-    if (savedLang === "kz" && !window.location.pathname.startsWith("/kz/")) {
-        redirectToLanguagePage("kz");
-    } else if (savedLang === "ru" && !window.location.pathname.startsWith("/ru/")) {
-        redirectToLanguagePage("ru");
-    }
+//     if (savedLang === "kz" && !window.location.pathname.startsWith("/kz/")) {
+//        redirectToLanguagePage("kz");
+//    } else if (savedLang === "ru" && !window.location.pathname.startsWith("/ru/")) {
+//        redirectToLanguagePage("ru");
+//   }
 
     // Обработчики событий для кнопок
     ruButton.addEventListener("click", () => setLanguage("ru"));
