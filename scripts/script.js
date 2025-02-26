@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const kzButton = document.getElementById("lang-kz");
 
     function setLanguage(lang) {
-        localStorage.setItem("language", lang); // Запоминаем язык
+        localStorage.setItem("language", lang); // Сохраняем язык
         updateActiveButton(lang); // Обновляем кнопки
         redirectToLanguagePage(lang); // Перенаправляем пользователя
     }
@@ -36,20 +36,28 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function redirectToLanguagePage(lang) {
-        let currentPath = window.location.pathname;
+        let currentPath = window.location.pathname; // Получаем текущий путь
+
+        // Если мы на главной (`/` или `/index.html`)
+        if (currentPath === "/" || currentPath === "/index.html") {
+            window.location.href = lang === "kz" ? "/kz/index.html" : "/index.html";
+            return;
+        }
+
+        // Определяем, где мы сейчас находимся
         let isInKZ = currentPath.startsWith("/kz/");
         let isInRU = currentPath.startsWith("/ru/");
 
+        // Формируем новый путь
         let newPath = "";
 
         if (lang === "kz" && !isInKZ) {
-            newPath = currentPath.replace("/ru/", "/kz/");
-            if (!isInRU) newPath = "/kz" + currentPath; 
+            newPath = "/kz" + currentPath.replace("/ru/", "");
         } else if (lang === "ru" && !isInRU) {
-            newPath = currentPath.replace("/kz/", "/ru/");
-            if (!isInKZ) newPath = "/ru" + currentPath; 
+            newPath = "/ru" + currentPath.replace("/kz/", "");
         }
 
+        // Перенаправляем, если путь изменился
         if (newPath && newPath !== currentPath) {
             window.location.href = newPath;
         }
@@ -58,6 +66,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // При загрузке страницы проверяем язык и обновляем кнопки
     let savedLang = localStorage.getItem("language") || "ru";
     updateActiveButton(savedLang);
+
+    // Если пользователь уже выбрал язык, перенаправляем его
+    if (savedLang === "kz" && !window.location.pathname.startsWith("/kz/")) {
+        redirectToLanguagePage("kz");
+    } else if (savedLang === "ru" && !window.location.pathname.startsWith("/ru/")) {
+        redirectToLanguagePage("ru");
+    }
 
     // Обработчики событий для кнопок
     ruButton.addEventListener("click", () => setLanguage("ru"));
