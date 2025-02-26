@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Бухгалтер<title>
+    <link rel="stylesheet" src="styles/accountant.css">
+    <script href="scripts/accountant.js"></script>
+</head>
+<body>
+
+</body>
+</html>
