@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0; URL=/">
+    <script>
+        // Авто-редирект на нужную страницу, если она существует
+        (function() {
+            var path = window.location.pathname;
+            var lang = localStorage.getItem("language") || "ru";
+            
+            if (lang === "kz" && !path.startsWith("/kz/")) {
+                window.location.href = "/kz" + path;
+            } else if (lang === "ru" && !path.startsWith("/ru/")) {
+                window.location.href = "/ru" + path;
+            }
+        })();
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html>
