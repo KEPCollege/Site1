@@ -2,17 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; URL=/">
     <script>
-        // Авто-редирект на нужную страницу, если она существует
         (function() {
             var path = window.location.pathname;
+            var repoName = "/Site1"; // Название твоего репозитория на GitHub
+
+            // Убираем repoName из пути, чтобы работать с относительными путями
+            if (path.startsWith(repoName)) {
+                path = path.replace(repoName, "");
+            }
+
             var lang = localStorage.getItem("language") || "ru";
-            
+
             if (lang === "kz" && !path.startsWith("/kz/")) {
-                window.location.href = "/kz" + path;
+                window.location.href = repoName + "/kz" + path;
             } else if (lang === "ru" && !path.startsWith("/ru/")) {
-                window.location.href = "/ru" + path;
+                window.location.href = repoName + "/ru" + path;
             }
         })();
     </script>
