@@ -8,15 +8,8 @@
     <link rel="stylesheet" href="../styles/style.css">
     <script src="../scripts/script.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
         main {
-            max-width: 800px;
+            max-width: 900px;
             margin: 20px auto;
             padding: 20px;
             background: white;
@@ -24,9 +17,16 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        h2, h3 {
+        h2,
+        h3 {
             color: #2c3e50;
             text-align: center;
+        }
+
+        h3 {
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 5px;
+            display: inline-block;
         }
 
         p {
@@ -36,12 +36,20 @@
             text-align: justify;
         }
 
-        .contact-container {
+        .contact-section {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-container,
+        .map-container {
+            flex: 1;
             background: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
         }
 
         .contact-info {
@@ -61,10 +69,7 @@
         }
 
         .map-container {
-            width: 100%;
-            height: 300px;
-            margin-top: 20px;
-            border-radius: 8px;
+            height: 250px;
             overflow: hidden;
         }
 
@@ -76,6 +81,14 @@
         }
 
         @media (max-width: 768px) {
+            .contact-section {
+                flex-direction: column;
+            }
+
+            .map-container {
+                height: 350px;
+            }
+
             main {
                 margin: 10px;
                 padding: 15px;
@@ -122,38 +135,40 @@
         <section id="about">
             <h2>О нас</h2>
             <p>
-                Колледж Экономики и Права — это современное образовательное учреждение, которое готовит специалистов 
-                по востребованным направлениям. Мы стремимся обеспечить качественное образование, 
-                соответствующее международным стандартам, и предоставить нашим студентам все возможности 
+                Колледж Экономики и Права — это современное образовательное учреждение, которое готовит специалистов
+                по востребованным направлениям. Мы стремимся обеспечить качественное образование,
+                соответствующее международным стандартам, и предоставить нашим студентам все возможности
                 для профессионального и личностного роста.
             </p>
             <p>
-                Наши преподаватели — опытные специалисты, которые помогают студентам освоить не только 
+                Наши преподаватели — опытные специалисты, которые помогают студентам освоить не только
                 теоретические знания, но и практические навыки, необходимые в их будущей карьере.
             </p>
 
-            <div class="contact-container">
-                <h3>Контакты</h3>
-                <div class="contact-info">
-                    <p><strong>Адрес:</strong><br>
-                        Алматинская область, Илийский район, пос. Отеген батыр, ул. Абая, 27а</p>
+            <div class="contact-section">
+                <div class="contact-container">
+                    <h3>Контакты</h3>
+                    <div class="contact-info">
+                        <p><strong>Адрес:</strong><br>
+                            Алматинская область, Илийский район, пос. Отеген батыр, ул. Абая, 27а</p>
 
-                    <p><strong>Call-center:</strong></p>
-                    <p>📞 <a href="tel:+77471841778">+7 (747) 184-17-78</a></p>
-                    <p>📞 <a href="tel:+77076917187">+7 (707) 691-71-87</a></p>
+                        <p><strong>Call-center:</strong></p>
+                        <p>📞 <a href="tel:+77471841778">+7 (747) 184-17-78</a></p>
+                        <p>📞 <a href="tel:+77076917187">+7 (707) 691-71-87</a></p>
 
-                    <p><strong>E-mail:</strong><br>
-                        📧 <a href="mailto:info@example.com">info@example.com</a></p>
+                        <p><strong>E-mail:</strong><br>
+                            📧 <a href="mailto:info@example.com">info@example.com</a></p>
 
-                    <p><strong>Режим работы:</strong><br>
-                        🕒 ПН-ПТ 09:00 - 18:00</p>
+                        <p><strong>Режим работы:</strong><br>
+                            🕒 ПН-ПТ 09:00 - 18:00</p>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://yandex.kz/map-widget/v1/-/CGXTbZmX?scroll=false" frameborder="1"
+                        allowfullscreen="allowfullscreen"></iframe>
                 </div>
             </div>
 
-            <div class="map-container">
-                <iframe src="https://yandex.kz/map-widget/v1/-/CGXTbZmX?scroll=false" frameborder="1"
-                    allowfullscreen="allowfullscreen"></iframe>
-            </div>
         </section>
     </main>
     <footer>
