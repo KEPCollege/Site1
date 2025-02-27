@@ -135,3 +135,21 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background: #2c3e50;
+    color: white;
+}
+tr:nth-child(even) {
+    background: #f9f9f9;
+}
