@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.querySelector(".menu-toggle");
     const sidebarMenu = document.querySelector(".sidebar-menu");
 
-    // Открытие/закрытие меню при клике на иконку
+    // Открытие/закрытие бокового меню
     menuToggle.addEventListener("click", function () {
         sidebarMenu.classList.toggle("active");
     });
@@ -12,6 +12,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!sidebarMenu.contains(event.target) && !menuToggle.contains(event.target)) {
             sidebarMenu.classList.remove("active");
         }
+    });
+
+    // Обработчик для подменю
+    document.querySelectorAll(".has-submenu > a").forEach(function (submenuToggle) {
+        submenuToggle.addEventListener("click", function (event) {
+            event.preventDefault(); // Отключаем переход по ссылке
+            this.parentElement.classList.toggle("active"); // Переключаем подменю
+        });
     });
 });
 
