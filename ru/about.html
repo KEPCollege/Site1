@@ -46,33 +46,40 @@
         .contact-section {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: stretch;
             gap: 30px;
+            margin-top: 30px;
+            width: 100%;
         }
 
-        /* Блок контактов */
-        .contact-info {
+        .contact-container {
             flex: 1;
-            max-width: 500px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         }
 
-        /* Карта теперь отдельная */
         .map-container {
             flex: 1;
-            max-width: 500px;
-            /* Чтобы на ПК карта не была слишком широкой */
-            height: 100%;
-            min-height: 250px;
-            max-height: 350px;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
+            /* Выравнивание влево */
             align-items: center;
+            overflow: hidden;
+            min-height: 250px;
+            /* Минимальная высота */
+            height: auto;
+            /* Автоматическая высота */
+            width: 100%;
         }
 
-        /* Карта внутри контейнера */
         .map-container iframe {
             width: 100%;
-            height: 100%;
+            min-height: 250px;
+            /* Минимальная высота, чтобы не схлопывалось */
+            max-height: 400px;
+            /* Ограничение максимальной высоты */
             border: 0;
         }
 
@@ -100,14 +107,14 @@
 
             .contact-section {
                 flex-direction: column;
-                align-items: center;
             }
 
             .map-container {
+                min-height: 00px;
+                max-width: 250px;
+                max-height: 400px;
+                /* Уменьшил высоту */
                 width: 100%;
-                max-width: 100%;
-                min-height: 300px;
-                max-height: 350px;
             }
 
             p,
@@ -165,33 +172,35 @@
     <main>
         <section id="about">
             <h2>О нас</h2>
-            <p data-ru="Негосударственное учреждение «Колледж Экономики и Права»"
-                data-kz="«Экономика және құқықтану колледжі» мемлекеттік емес мекемесі">История и контакты колледжа.</p>
+            <p>
+                Колледж Экономики и Права — это современное образовательное учреждение, которое готовит специалистов
+                по востребованным направлениям. Мы стремимся обеспечить качественное образование,
+                соответствующее международным стандартам, и предоставить нашим студентам все возможности
+                для профессионального и личностного роста.
+            </p>
 
-            <!-- Контакты и карта теперь в разных блоках -->
             <div class="contact-section">
-                <div class="contact-info">
+                <div class="contact-container">
                     <h3>Контакты</h3>
-                    <p><strong>Адрес:</strong><br>
-                        Алматинская область, Илийский район, пос. Отеген батыр, ул. Абая, 27а</p>
+                    <div class="contact-info">
+                        <p><strong>Адрес:</strong><br>
+                            Алматинская область, Илийский район, пос. Отеген батыр, ул. Абая, 27а</p>
 
-                    <p><strong>Call-center:</strong></p>
-                    <p>📞 <a href="tel:+77471841778">+7 (747) 184-17-78</a></p>
-                    <p>📞 <a href="tel:+77076917187">+7 (707) 691-71-87</a></p>
+                        <p><strong>Call-center:</strong></p>
+                        <p>📞 <a href="tel:+77471841778">+7 (747) 184-17-78</a></p>
+                        <p>📞 <a href="tel:+77076917187">+7 (707) 691-71-87</a></p>
 
-                    <p><strong>E-mail:</strong><br>
-                        📧 <a href="mailto:info@example.com">info@example.com</a></p>
-
-                    <p><strong>Режим работы:</strong><br>
-                        🕒 ПН-ПТ 09:00 - 18:00</p>
+                        <p><strong>E-mail:</strong><br>
+                            📧 <a href="mailto:info@example.com">info@example.com</a></p>
+                        <p><strong>Режим работы:</strong><br>
+                            🕒 ПН-ПТ 09:00 - 18:00</p>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://yandex.kz/map-widget/v1/-/CGXTbZmX?scroll=false" frameborder="1"
+                        allowfullscreen="allowfullscreen"></iframe>
                 </div>
             </div>
-            <!-- Карта теперь ОТДЕЛЬНО -->
-            <div class="map-container">
-                <iframe src="https://yandex.kz/map-widget/v1/-/CGXTbZmX?scroll=false" frameborder="1"
-                    allowfullscreen="allowfullscreen"></iframe>
-            </div>
-        </section>
 
         </section>
     </main>
