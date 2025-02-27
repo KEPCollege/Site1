@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,22 @@
     <link rel="stylesheet" href="../styles/style.css">
     <script src="../scripts/script.js"></script>
 </head>
+
 <body>
     <header>
         <h1 id="title">Негосударственное учреждение «Колледж Экономики и права»</h1>
         <div class="menu-toggle"><img src="../img/menu-white.svg"></div>
         <nav class="sidebar-menu">
-             <ul>
+            <ul>
                 <li><a href="../index.html">Главная</a></li>
                 <li><a href="news.html">Новости</a></li>
-                <li><a href="applicants.html">Абитуриентам</a></li>
+                <li class="has-submenu">
+                    <a href="#">Абитуриентам</a>
+                    <ul class="submenu">
+                        <li><a href="admissions.html">Приёмная комиссия</a></li>
+                        <li><a href="specialties.html">Специальности</a></li>
+                    </ul>
+                </li>
                 <li><a href="students.html">Учащимся</a></li>
                 <li><a href="teachers.html">Преподавателям</a></li>
                 <li><a href="projects.html">Проекты</a></li>
@@ -28,14 +36,15 @@
         </div>
     </header>
     <main>
-    <section id="applicants">
-        <h2 >Абитуриентам</h2>
-        <p >Информация для поступающих.</p>
-        <img id="applicants-img" src="img/pay-ru.jpg" alt="Абитуриентам" >
-    </section>
+        <section id="applicants">
+            <h2>Абитуриентам</h2>
+            <p>Информация для поступающих.</p>
+            <img id="applicants-img" src="img/pay-ru.jpg" alt="Абитуриентам">
+        </section>
     </main>
     <footer>
         <p>&copy; 2025 Негосударственное учреждение «Колледж Экономики и права». Все права защищены.</p>
     </footer>
 </body>
+
 </html>
