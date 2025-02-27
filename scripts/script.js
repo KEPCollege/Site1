@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const sidebarMenu = document.querySelector(".sidebar-menu");
 
     // Открытие/закрытие бокового меню
-    menuToggle.addEventListener("click", function () {
+    menuToggle.addEventListener("click", function (event) {
+        event.stopPropagation();
         sidebarMenu.classList.toggle("active");
     });
 
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const ruButton = document.getElementById("lang-ru");
