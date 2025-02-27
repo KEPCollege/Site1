@@ -46,35 +46,30 @@
         .contact-section {
             display: flex;
             justify-content: space-between;
-            align-items: stretch;
+            align-items: flex-start;
             gap: 30px;
-            margin-top: 30px;
-            width: 100%;
         }
 
-        .contact-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: stretch;
-            gap: 30px;
-            margin-top: 30px;
+        /* Блок контактов */
+        .contact-info {
+            flex: 1;
+            max-width: 500px;
         }
 
-        /* Исправление для карты */
+        /* Карта теперь отдельная */
         .map-container {
-            width: 100%;
-            max-width: 100%;
-            /* Чтобы не выходило за границы */
+            flex: 1;
+            max-width: 500px;
+            /* Чтобы на ПК карта не была слишком широкой */
+            height: 100%;
             min-height: 250px;
             max-height: 350px;
             display: flex;
             justify-content: center;
-            /* Выравниваем центр */
             align-items: center;
-            margin: 0 auto;
-            /* Убираем случайные отступы */
         }
 
+        /* Карта внутри контейнера */
         .map-container iframe {
             width: 100%;
             height: 100%;
@@ -105,13 +100,13 @@
 
             .contact-section {
                 flex-direction: column;
-                /* На телефоне контакты и карта друг под другом */
+                align-items: center;
             }
 
             .map-container {
                 width: 100%;
+                max-width: 100%;
                 min-height: 300px;
-                /* Делаем карту шире и ниже */
                 max-height: 350px;
             }
 
@@ -170,35 +165,33 @@
     <main>
         <section id="about">
             <h2>О нас</h2>
-            <p>
-                Колледж Экономики и Права — это современное образовательное учреждение, которое готовит специалистов
-                по востребованным направлениям. Мы стремимся обеспечить качественное образование,
-                соответствующее международным стандартам, и предоставить нашим студентам все возможности
-                для профессионального и личностного роста.
-            </p>
+            <p data-ru="Негосударственное учреждение «Колледж Экономики и Права»"
+                data-kz="«Экономика және құқықтану колледжі» мемлекеттік емес мекемесі">История и контакты колледжа.</p>
 
+            <!-- Контакты и карта теперь в разных блоках -->
             <div class="contact-section">
-                <div class="contact-container">
+                <div class="contact-info">
                     <h3>Контакты</h3>
-                    <div class="contact-info">
-                        <p><strong>Адрес:</strong><br>
-                            Алматинская область, Илийский район, пос. Отеген батыр, ул. Абая, 27а</p>
+                    <p><strong>Адрес:</strong><br>
+                        Алматинская область, Илийский район, пос. Отеген батыр, ул. Абая, 27а</p>
 
-                        <p><strong>Call-center:</strong></p>
-                        <p>📞 <a href="tel:+77471841778">+7 (747) 184-17-78</a></p>
-                        <p>📞 <a href="tel:+77076917187">+7 (707) 691-71-87</a></p>
+                    <p><strong>Call-center:</strong></p>
+                    <p>📞 <a href="tel:+77471841778">+7 (747) 184-17-78</a></p>
+                    <p>📞 <a href="tel:+77076917187">+7 (707) 691-71-87</a></p>
 
-                        <p><strong>E-mail:</strong><br>
-                            📧 <a href="mailto:info@example.com">info@example.com</a></p>
-                        <p><strong>Режим работы:</strong><br>
-                            🕒 ПН-ПТ 09:00 - 18:00</p>
-                    </div>
-                </div>
-                <div class="map-container">
-                    <iframe src="https://yandex.kz/map-widget/v1/-/CGXTbZmX?scroll=false" frameborder="1"
-                        allowfullscreen="allowfullscreen"></iframe>
+                    <p><strong>E-mail:</strong><br>
+                        📧 <a href="mailto:info@example.com">info@example.com</a></p>
+
+                    <p><strong>Режим работы:</strong><br>
+                        🕒 ПН-ПТ 09:00 - 18:00</p>
                 </div>
             </div>
+            <!-- Карта теперь ОТДЕЛЬНО -->
+            <div class="map-container">
+                <iframe src="https://yandex.kz/map-widget/v1/-/CGXTbZmX?scroll=false" frameborder="1"
+                    allowfullscreen="allowfullscreen"></iframe>
+            </div>
+        </section>
 
         </section>
     </main>
