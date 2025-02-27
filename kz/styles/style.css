@@ -64,6 +64,7 @@ footer {
 }
 
 .sidebar-menu {
+    display: block !important;
     position: absolute;
     top: 50px;
     left: -250px; /* Скрываем меню за границей экрана */

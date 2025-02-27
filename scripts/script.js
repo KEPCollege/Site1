@@ -2,28 +2,31 @@ document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.querySelector(".menu-toggle");
     const sidebarMenu = document.querySelector(".sidebar-menu");
 
-    // Открытие/закрытие бокового меню
+    if (!menuToggle || !sidebarMenu) {
+        console.error("Меню или кнопка не найдены!");
+        return;
+    }
+
     menuToggle.addEventListener("click", function (event) {
         event.stopPropagation();
         sidebarMenu.classList.toggle("active");
     });
 
-    // Закрытие меню при клике вне него
     document.addEventListener("click", function (event) {
         if (!sidebarMenu.contains(event.target) && !menuToggle.contains(event.target)) {
             sidebarMenu.classList.remove("active");
         }
     });
 
-    // Обработчик для подменю
     document.querySelectorAll(".has-submenu > a").forEach(function (submenuToggle) {
         submenuToggle.addEventListener("click", function (event) {
-            event.preventDefault(); // Отключаем переход по ссылке
-            this.parentElement.classList.toggle("active"); // Переключаем подменю
+            event.preventDefault();
+            this.parentElement.classList.toggle("active");
         });
     });
-});
 
+    console.log("Меню скрипт загружен");
+});
 
 document.addEventListener("DOMContentLoaded", function () {
     const ruButton = document.getElementById("lang-ru");
