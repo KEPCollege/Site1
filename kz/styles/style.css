@@ -1,0 +1,23 @@
+.sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu .submenu {
+    display: none;
+    padding-left: 20px;
+}
+
+.sidebar-menu .submenu li {
+    padding: 5px 0;
+}
+
+/* Показываем подменю, когда класс active */
+.sidebar-menu .has-submenu.active .submenu {
+    display: block;
+}
+
+.sidebar-menu .has-submenu > a {
+    cursor: pointer;
+}
