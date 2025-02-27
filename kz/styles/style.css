@@ -123,15 +123,15 @@ footer {
 }
 
 .submenu {
-    height: 0;
+    max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transform: translateY(-10px); /* Начальное положение немного выше */
-    transition: height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+    transform: translateY(-10px);
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
 .has-submenu.active .submenu {
-    height: auto; /* Позволяет подменю занять свою высоту */
+    max-height: 500px; /* Достаточно большое значение для плавного открытия */
     opacity: 1;
-    transform: translateY(0); /* Плавное появление вниз */
+    transform: translateY(0);
 }
