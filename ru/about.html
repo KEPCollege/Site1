@@ -8,35 +8,86 @@
     <link rel="stylesheet" href="../styles/style.css">
     <script src="../scripts/script.js"></script>
     <style>
-        .contact-container {
-            max-width: 400px;
-            background: white;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
             padding: 20px;
+            background: white;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        h3 {
+
+        h2, h3 {
             color: #2c3e50;
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 5px;
+            text-align: center;
         }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            text-align: justify;
+        }
+
+        .contact-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
         .contact-info {
             font-size: 16px;
             line-height: 1.6;
             color: #333;
         }
+
         .contact-info a {
             color: #007BFF;
             text-decoration: none;
             font-weight: bold;
         }
+
         .contact-info a:hover {
             text-decoration: underline;
         }
-        .icon {
-            font-size: 18px;
-            margin-right: 5px;
-            color: #007BFF;
+
+        .map-container {
+            width: 100%;
+            height: 300px;
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .contact-info {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -70,8 +121,17 @@
     <main>
         <section id="about">
             <h2>О нас</h2>
-            <p data-ru="Негосударственное учреждение «Колледж Экономики и права»"
-                data-kz="«Экономика және құқықтану колледжі» мемлекеттік емес мекемесі">История и контакты колледжа.</p>
+            <p>
+                Колледж Экономики и Права — это современное образовательное учреждение, которое готовит специалистов 
+                по востребованным направлениям. Мы стремимся обеспечить качественное образование, 
+                соответствующее международным стандартам, и предоставить нашим студентам все возможности 
+                для профессионального и личностного роста.
+            </p>
+            <p>
+                Наши преподаватели — опытные специалисты, которые помогают студентам освоить не только 
+                теоретические знания, но и практические навыки, необходимые в их будущей карьере.
+            </p>
+
             <div class="contact-container">
                 <h3>Контакты</h3>
                 <div class="contact-info">
@@ -89,11 +149,10 @@
                         🕒 ПН-ПТ 09:00 - 18:00</p>
                 </div>
             </div>
+
             <div class="map-container">
                 <iframe src="https://yandex.kz/map-widget/v1/-/CGXTbZmX?scroll=false" frameborder="1"
-                    allowfullscreen="allowfullscreen">
-                    #document (https://yandex.kz/map-widget/v1/-/CGXTbZmX)
-                </iframe>
+                    allowfullscreen="allowfullscreen"></iframe>
             </div>
         </section>
     </main>
