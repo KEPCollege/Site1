@@ -121,3 +121,18 @@ footer {
 .sidebar-menu ul li a:hover {
     background: rgba(31, 46, 61, 0.8);
 }
+
+.submenu {
+    max-height: 0; /* Начальное состояние - скрыто */
+    overflow: hidden;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.has-submenu.active .submenu {
+    max-height: 500px; /* Достаточно большое значение для всех пунктов */
+    opacity: 1;
+    transform: scaleY(1);
+}
