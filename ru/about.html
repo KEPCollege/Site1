@@ -8,13 +8,21 @@
     <link rel="stylesheet" href="../styles/style.css">
     <script src="../scripts/script.js"></script>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
         main {
-            max-width: 900px;
+            max-width: 1100px;
+            /* Сделал сайт шире */
             margin: 20px auto;
-            padding: 20px;
+            padding: 30px;
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         }
 
         h2,
@@ -24,14 +32,14 @@
         }
 
         h3 {
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 5px;
+            border-bottom: 3px solid #2c3e50;
+            padding-bottom: 8px;
             display: inline-block;
         }
 
         p {
-            font-size: 16px;
-            line-height: 1.6;
+            font-size: 18px;
+            line-height: 1.8;
             color: #333;
             text-align: justify;
         }
@@ -39,22 +47,39 @@
         .contact-section {
             display: flex;
             justify-content: space-between;
-            gap: 20px;
-            margin-top: 20px;
+            align-items: stretch;
+            /* Карта растягивается вниз */
+            gap: 30px;
+            margin-top: 30px;
         }
 
-        .contact-container,
-        .map-container {
+        .contact-container {
             flex: 1;
             background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container {
+            flex: 1;
+            min-height: 400px;
+            /* Карта растягивается вниз */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 10px;
         }
 
         .contact-info {
-            font-size: 16px;
-            line-height: 1.6;
+            font-size: 18px;
+            line-height: 1.8;
             color: #333;
         }
 
@@ -68,36 +93,39 @@
             text-decoration: underline;
         }
 
-        .map-container {
-            height: 250px;
-            overflow: hidden;
-        }
+        @media (max-width: 900px) {
+            main {
+                max-width: 95%;
+                padding: 20px;
+            }
 
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-            border-radius: 8px;
-        }
-
-        @media (max-width: 768px) {
             .contact-section {
                 flex-direction: column;
             }
 
             .map-container {
-                height: 350px;
+                min-height: 450px;
+                /* На телефоне карта больше */
+                width: 100%;
             }
 
+            p,
+            .contact-info {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 600px) {
             main {
-                margin: 10px;
                 padding: 15px;
             }
 
-            p {
-                font-size: 14px;
+            .map-container {
+                min-height: 500px;
+                /* Еще больше на телефоне */
             }
 
+            p,
             .contact-info {
                 font-size: 14px;
             }
@@ -151,7 +179,6 @@
                     <div class="contact-info">
                         <p><strong>Адрес:</strong><br>
                             Алматинская область, Илийский район, пос. Отеген батыр, ул. Абая, 27а</p>
-
                         <p><strong>Call-center:</strong></p>
                         <p>📞 <a href="tel:+77471841778">+7 (747) 184-17-78</a></p>
                         <p>📞 <a href="tel:+77076917187">+7 (707) 691-71-87</a></p>
@@ -163,6 +190,7 @@
                             🕒 ПН-ПТ 09:00 - 18:00</p>
                     </div>
                 </div>
+
                 <div class="map-container">
                     <iframe src="https://yandex.kz/map-widget/v1/-/CGXTbZmX?scroll=false" frameborder="1"
                         allowfullscreen="allowfullscreen"></iframe>
@@ -172,9 +200,7 @@
         </section>
     </main>
     <footer>
-        <p data-ru="&copy; 2025 Негосударственное учреждение «Колледж Экономики и права» Все права защищены."
-            data-kz="&copy; 2025 «Экономика және құқықтану колледжі» мемлекеттік емес мекемесі. Барлық құқықтар қорғалған.">
-            &copy; 2025 Негосударственное учреждение «Колледж Экономики и права» Все права защищены.</p>
+        <p>&copy; 2025 Негосударственное учреждение «Колледж Экономики и права» Все права защищены.</p>
     </footer>
 </body>
 
